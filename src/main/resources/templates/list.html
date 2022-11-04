@@ -15,6 +15,7 @@
             <tr>
                 <th:block th:each="column : ${columns}">
                     <th th:text = "${column.value}"></th>
+<!--                   <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>-->
                 </th:block>
             </tr>
             <tr>
