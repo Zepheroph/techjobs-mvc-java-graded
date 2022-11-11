@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class SearchController {
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
     @PostMapping(value = "results")
-    public String displaySearchResults(Model model, String searchType, String searchTerm){
+    public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
               ArrayList<Job> filteredJobs;
 
         if(searchTerm.equals("all") || searchTerm.equals("")) {
@@ -40,8 +41,8 @@ public class SearchController {
             filteredJobs = JobData.findByColumnAndValue(searchType, searchTerm);
             System.out.print(searchTerm);
         }
-        model.addAttribute("columns", columnChoices);
-        model.addAttribute("jobPosts", filteredJobs);
+        model.addAttribute("columns", ListController.columnChoices);
+        model.addAttribute("jobs", filteredJobs);
         return "search";
     }
 

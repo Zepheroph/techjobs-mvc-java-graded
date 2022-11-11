@@ -15,13 +15,17 @@
             <tr>
                 <th:block th:each="column : ${columns}">
                     <th th:text = "${column.value}"></th>
-<!--                   <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>-->
+                   <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>
                 </th:block>
             </tr>
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td>
+                    <li>
+                        <a th:href="@{/list/jobs(column='all')}"></a>
+                    </li>
+                </td> <!-- Feel free to remove or modify this element if necessary. -->
 
                 <td th:each="category : ${tableChoices}">
                     <ul>

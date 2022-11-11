@@ -36,7 +36,7 @@
 
     <hr />
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
-    <table th:each= "aJob: ${jobPosts}" class="job-listing">
+    <table th:each= "aJob: ${jobs}" class="job-listing">
         <tr>
             <td th:text="ID"></td>
             <td th:text="${aJob.id}"></td>
